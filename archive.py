@@ -13,7 +13,7 @@ colorScheme = ['#012A4A', '#013A63', '#01497C', '#014F86', '#2A6F97', '#2C7DA0',
 colorScheme2 = ['#A5BE00', '#679436', '#EBF2FA', '#427AA1', '#05668D', '#468FAF', '#61A5C2', ]
 
 
-data_archive = pd.read_csv(r'https://github.com/TatKhachatryan/archive-report/blob/main/breach_report_archive.csv')
+data_archive = pd.read_csv("https://raw.githubusercontent.com/TatKhachatryan/archive-report/main/breach_report_archive.csv")
 
 data_archive['Breach Submission Date'] = pd.to_datetime(data_archive['Breach Submission Date'])
 
