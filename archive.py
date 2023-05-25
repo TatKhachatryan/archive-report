@@ -13,7 +13,7 @@ colorScheme = ['#012A4A', '#013A63', '#01497C', '#014F86', '#2A6F97', '#2C7DA0',
 colorScheme2 = ['#A5BE00', '#679436', '#EBF2FA', '#427AA1', '#05668D', '#468FAF', '#61A5C2', ]
 
 
-data_archive = pd.read_csv('breach_report_archive.csv')
+data_archive = pd.read_csv(r'https://github.com/TatKhachatryan/archive-report/blob/main/breach_report_archive.csv')
 
 data_archive['Breach Submission Date'] = pd.to_datetime(data_archive['Breach Submission Date'])
 
@@ -133,7 +133,8 @@ external_stylesheets = [dbc.themes.FLATLY]
 
 app = Dash(__name__, external_stylesheets=external_stylesheets,
            meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}])
-# server = app.server
+server = app.server
+app.title = 'Archive Data Report'
 
 card_content1 = [
     dbc.CardHeader("Breach Type Percentage"),
@@ -183,9 +184,9 @@ card3 = dbc.Card(dbc.ListGroup(
     ),
 )
 
-layout = html.Div([
+app.layout = html.Div([
     
-    html.H1("Heal Security Breach Report", style={"text-align": "center"}),
+    html.H1("Heal Security Breach Archive Report", style={"text-align": "center"}),
     
     html.Div([dbc.Row([
              
@@ -274,6 +275,7 @@ def update_output2(years):
 #     fig.update(layout_showlegend=False)
     return fig
 
-
+if __name__ == '__main__':
+    app.run_server(debug=False)
 
 
